@@ -42,11 +42,11 @@ class AnimationBlock():
         self.id = id
         self.accessToken = accessToken
         self.autostart = autostart
-        self.currentState = startState
+        self.currentState:PixelState = startState
 
         self.status = status
 
-        self.lastUpdate = time.perf_counter_ns()
+        self.lastUpdate = time.perf_counter()
 
         self.setPixelStates()
 
@@ -61,7 +61,9 @@ class AnimationBlock():
 
         if(self.currentState.transition.transitionType == TransitionType.DELAY):
             
-            if((time.perf_counter_ns()) - self.lastUpdate >= self.currentState.transition.duration):
+            now = time.perf_counter()
+            #print("Last Update: {}; Current Time: {}; Diff: {}; lag: {}".format(self.lastUpdate, now, now - self.lastUpdate, self.currentState.transition.duration))
+            if(now - self.lastUpdate >= self.currentState.transition.duration):
                 return True
            
         return False
@@ -69,7 +71,9 @@ class AnimationBlock():
     def setPixelStates(self):
 
         if(self.accessToken is None):
-            print("No Access Token is configured to write to a chain of Neopixels!");
+            #print("No Access Token is configured to write to a chain of Neopixels!");
+            if(self.currentState is not None):
+                print(self.currentState.pixelList)
             return;
 
         if(status != AnimationStatus().STOPPED):
@@ -81,7 +85,8 @@ class AnimationBlock():
 
         if(self.checkSwitchCondition()):
             self.currentState = self.currentState.next
-            self.lastUpdate = time.perf_counter_ns()
+            self.setPixelStates()
+            self.lastUpdate = time.perf_counter()
 
 
 class PixelBlock():
@@ -103,7 +108,6 @@ class PixelBlock():
             
             for anim in self.animationBlocks:
 
-                anim.setPixelStates()
                 anim.next()
 
             if(not self.auto_write):
@@ -122,33 +126,33 @@ def main():
 
     print("Starting config")
     
-    block1State3 = PixelState([(0, (0,255,0)), (1, (0,0,0)), (2, (0,0,0)), (3, (0,0,0)), (4, (0,0,0)), (5, (0,255,0))], None, Transition(250))
-    block1State2 = PixelState([(0, (0,0,0)), (1, (0,255,0)), (2, (0,0,0)), (3, (0,0,0)), (4, (0,255,0)), (5, (0,0,0))], block1State3, Transition(250))
-    block1State1 = PixelState([(0, (0,0,0)), (1, (0,0,0)), (2, (0,255,0)), (3, (0,255,0)), (4, (0,0,0)), (5, (0,0,0))], block1State2, Transition(250))
+    block1State3 = PixelState([(0, (0,255,0)), (1, (0,0,0)), (2, (0,0,0)), (3, (0,0,0)), (4, (0,0,0)), (5, (0,255,0))], None, Transition(0.25))
+    block1State2 = PixelState([(0, (0,0,0)), (1, (0,255,0)), (2, (0,0,0)), (3, (0,0,0)), (4, (0,255,0)), (5, (0,0,0))], block1State3, Transition(0.25))
+    block1State1 = PixelState([(0, (0,0,0)), (1, (0,0,0)), (2, (0,255,0)), (3, (0,255,0)), (4, (0,0,0)), (5, (0,0,0))], block1State2, Transition(0.25))
 
     block1State3.setNext(block1State1)
 
     animBlock1 = AnimationBlock("ANIM 1")    
     animBlock1.setCurrentState(block1State1)
 
-    block2State2 = PixelState([(6, (0,0,0)), (7, (0,0,255))], None, Transition(500))
-    block2State1 = PixelState([(6, (0,0,255)), (7, (0,0,0))], block2State2, Transition(500))
+    block2State2 = PixelState([(6, (0,0,0)), (7, (0,0,255))], None, Transition(0.5))
+    block2State1 = PixelState([(6, (0,0,255)), (7, (0,0,0))], block2State2, Transition(0.5))
 
     block2State2.setNext(block2State1)
     
     animBlock2 = AnimationBlock("ANIM 2")    
     animBlock2.setCurrentState(block2State1)
 
-    block3State2 = PixelState([(8, (255,0,0))], None, Transition(250))
-    block3State1 = PixelState([(8, (0,0,0))], block3State2, Transition(750))
+    block3State2 = PixelState([(8, (255,0,0))], None, Transition(0.25))
+    block3State1 = PixelState([(8, (0,0,0))], block3State2, Transition(0.75))
 
     block3State2.setNext(block3State1)
     
     animBlock3 = AnimationBlock("ANIM 3")    
     animBlock3.setCurrentState(block3State1)
 
-    block4State2 = PixelState([(8, (0,0,255))], None, Transition(750))
-    block4State1 = PixelState([(8, (0,0,0))], block4State2, Transition(100))
+    block4State2 = PixelState([(9, (0,0,255))], None, Transition(0.75))
+    block4State1 = PixelState([(9, (0,0,0))], block4State2, Transition(0.1))
 
     block4State2.setNext(block4State1)
     
@@ -166,5 +170,6 @@ def main():
     print("Config done")
 
     pixelBlock.startAll()
+
 
 main()
