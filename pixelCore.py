@@ -162,7 +162,7 @@ def main():
     animBlock4.setCurrentState(block4State1)
 
 
-    pixelBlock = PixelBlock(12, 15)
+    pixelBlock = PixelBlock(12, 15, 0.2, True, neopixel.RGB)
 
     pixelBlock.addAnimationBlock(animBlock1)
     pixelBlock.addAnimationBlock(animBlock2)
