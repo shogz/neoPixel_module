@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-#import neopixel
+import neopixel
 from enum import Enum
 import time
 
@@ -71,7 +71,7 @@ class AnimationBlock():
     def setPixelStates(self):
 
         if(self.accessToken is None):
-            #print("No Access Token is configured to write to a chain of Neopixels!");
+            print("No Access Token is configured to write to a chain of Neopixels!");
             if(self.currentState is not None):
                 print(self.currentState.pixelList)
             return;
@@ -84,6 +84,7 @@ class AnimationBlock():
     def next(self):
 
         if(self.checkSwitchCondition()):
+            print("Animation: " + self.id)
             self.currentState = self.currentState.next
             self.setPixelStates()
             self.lastUpdate = time.perf_counter()
@@ -94,12 +95,13 @@ class PixelBlock():
     animationBlocks = []
     stopped = True
 
-    def __init__(self, hardwarePin, noPixel, brightness=0.2, auto_write=True, pixel_order=None):#=neopixel.RGB):
+    def __init__(self, hardwarePin, noPixel, brightness=0.2, auto_write=True, pixel_order=neopixel.RGB):
 
-        self.pixels = None #neopixel.NeoPixel(hardwarePin, noPixels, brightness, auto_write, pixel_order)
+        self.pixels = neopixel.NeoPixel(hardwarePin, noPixels, brightness, auto_write, pixel_order)
         self.auto_write = auto_write
         
     def addAnimationBlock(self, animationBlock: AnimationBlock):
+        animationBlock.accessToken = self.pixels
         self.animationBlocks.append(animationBlock)
 
     def runAnimations(self):
@@ -111,8 +113,8 @@ class PixelBlock():
                 anim.next()
 
             if(not self.auto_write):
-                print()
-                #self.pixels.show()
+                #print()
+                self.pixels.show()
 
     def stopAll(self):
         self.stopped = True
