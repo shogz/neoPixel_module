@@ -145,16 +145,16 @@ def main():
     animBlock2 = AnimationBlock("ANIM 2")    
     animBlock2.setCurrentState(block2State1)
 
-    block3State2 = PixelState([(8, (255,0,0))], None, Transition(0.25))
-    block3State1 = PixelState([(8, (0,0,0))], block3State2, Transition(0.75))
+    block3State2 = PixelState([(10, (255,0,0))], None, Transition(0.25))
+    block3State1 = PixelState([(10, (0,0,0))], block3State2, Transition(0.75))
 
     block3State2.setNext(block3State1)
     
     animBlock3 = AnimationBlock("ANIM 3")    
     animBlock3.setCurrentState(block3State1)
 
-    block4State2 = PixelState([(9, (0,0,255))], None, Transition(0.75))
-    block4State1 = PixelState([(9, (0,0,0))], block4State2, Transition(0.1))
+    block4State2 = PixelState([(12, (0,0,255))], None, Transition(0.75))
+    block4State1 = PixelState([(12, (0,0,0))], block4State2, Transition(0.1))
 
     block4State2.setNext(block4State1)
     
@@ -162,7 +162,7 @@ def main():
     animBlock4.setCurrentState(block4State1)
 
 
-    pixelBlock = PixelBlock(10, 10)
+    pixelBlock = PixelBlock(12, 15)
 
     pixelBlock.addAnimationBlock(animBlock1)
     pixelBlock.addAnimationBlock(animBlock2)
