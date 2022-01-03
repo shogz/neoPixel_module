@@ -95,7 +95,7 @@ class PixelBlock():
     animationBlocks = []
     stopped = True
 
-    def __init__(self, hardwarePin, noPixel, brightness=0.2, auto_write=True, pixel_order=neopixel.RGB):
+    def __init__(self, hardwarePin, noPixels, brightness=0.2, auto_write=True, pixel_order=neopixel.RGB):
 
         self.pixels = neopixel.NeoPixel(hardwarePin, noPixels, brightness, auto_write, pixel_order)
         self.auto_write = auto_write
