@@ -43,7 +43,7 @@ class AnimationBlock():
         self.id = id
         self.accessToken = accessToken
         self.autostart = autostart
-        self.currentState:PixelState = startState
+        self.currentState = startState
 
         self.status = status
 
