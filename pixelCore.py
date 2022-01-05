@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import board
 import neopixel
 from enum import Enum
 import time
@@ -37,7 +38,7 @@ class PixelState():
 
 class AnimationBlock():
 
-    def __init__(self, id, accessToken = None, autostart: bool = True, status:AnimationStatus = AnimationStatus.RUNNING, startState = None):
+    def __init__(self, id, accessToken = None, autostart = True, status = AnimationStatus.RUNNING, startState = None):
         
         self.id = id
         self.accessToken = accessToken
@@ -53,7 +54,7 @@ class AnimationBlock():
     def setAccessToken(self, accessToken):
         self.accessToken = accessToken
 
-    def setCurrentState(self, newState: PixelState):
+    def setCurrentState(self, newState):
         self.currentState = newState
         self.setPixelStates()
 
@@ -97,7 +98,7 @@ class PixelBlock():
 
     def __init__(self, hardwarePin, noPixels, brightness=0.2, auto_write=True, pixel_order=neopixel.RGB):
 
-        self.pixels = neopixel.NeoPixel(hardwarePin, noPixels)#, brightness, auto_write, pixel_order)
+        self.pixels = neopixel.NeoPixel(hardwarePin, noPixels, brightness, auto_write, pixel_order)
         self.auto_write = auto_write
         
     def addAnimationBlock(self, animationBlock: AnimationBlock):
@@ -162,7 +163,7 @@ def main():
     animBlock4.setCurrentState(block4State1)
 
 
-    pixelBlock = PixelBlock(12, 15)#, 0.2, True, neopixel.RGB)
+    pixelBlock = PixelBlock(board.D12 , 15, 0.2, True, neopixel.RGB)
 
     pixelBlock.addAnimationBlock(animBlock1)
     pixelBlock.addAnimationBlock(animBlock2)
