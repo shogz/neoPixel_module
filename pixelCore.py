@@ -77,7 +77,7 @@ class AnimationBlock():
                 print(self.currentState.pixelList)
             return;
 
-        if(status != AnimationStatus.STOPPED):
+        if(self.status != AnimationStatus.STOPPED):
 
             for pix in currentState.pixelList:
                 self.accessToken[pix(1)] = pix(2)
