@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-import board
 import neopixel
+import board
 from enum import Enum
 import time
 
