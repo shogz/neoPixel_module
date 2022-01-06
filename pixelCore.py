@@ -139,37 +139,37 @@ def main():
     animBlock1 = AnimationBlock("ANIM 1")    
     animBlock1.setCurrentState(block1State1)
 
-    block2State2 = PixelState([(6, (0,0,0)), (7, (0,0,255))], None, Transition(0.5))
-    block2State1 = PixelState([(6, (0,0,255)), (7, (0,0,0))], block2State2, Transition(0.5))
+    #block2State2 = PixelState([(6, (0,0,0)), (7, (0,0,255))], None, Transition(0.5))
+    #block2State1 = PixelState([(6, (0,0,255)), (7, (0,0,0))], block2State2, Transition(0.5))
 
-    block2State2.setNext(block2State1)
+    #block2State2.setNext(block2State1)
     
-    animBlock2 = AnimationBlock("ANIM 2")    
-    animBlock2.setCurrentState(block2State1)
+    #animBlock2 = AnimationBlock("ANIM 2")    
+    #animBlock2.setCurrentState(block2State1)
 
-    block3State2 = PixelState([(10, (255,0,0))], None, Transition(0.25))
-    block3State1 = PixelState([(10, (0,0,0))], block3State2, Transition(0.75))
+    #block3State2 = PixelState([(10, (255,0,0))], None, Transition(0.25))
+    #block3State1 = PixelState([(10, (0,0,0))], block3State2, Transition(0.75))
 
-    block3State2.setNext(block3State1)
+    #block3State2.setNext(block3State1)
     
-    animBlock3 = AnimationBlock("ANIM 3")    
-    animBlock3.setCurrentState(block3State1)
+    #animBlock3 = AnimationBlock("ANIM 3")    
+    #animBlock3.setCurrentState(block3State1)
 
-    block4State2 = PixelState([(12, (0,0,255))], None, Transition(0.75))
-    block4State1 = PixelState([(12, (0,0,0))], block4State2, Transition(0.1))
+    #block4State2 = PixelState([(12, (0,0,255))], None, Transition(0.75))
+    #block4State1 = PixelState([(12, (0,0,0))], block4State2, Transition(0.1))
 
-    block4State2.setNext(block4State1)
+    #block4State2.setNext(block4State1)
     
-    animBlock4 = AnimationBlock("ANIM 4")    
-    animBlock4.setCurrentState(block4State1)
+    #animBlock4 = AnimationBlock("ANIM 4")    
+    #animBlock4.setCurrentState(block4State1)
 
 
     pixelBlock = PixelBlock(board.D12 , 15, 0.2, True, neopixel.RGB)
 
     pixelBlock.addAnimationBlock(animBlock1)
-    pixelBlock.addAnimationBlock(animBlock2)
-    pixelBlock.addAnimationBlock(animBlock3)    
-    pixelBlock.addAnimationBlock(animBlock4)
+    #pixelBlock.addAnimationBlock(animBlock2)
+    #pixelBlock.addAnimationBlock(animBlock3)    
+    #pixelBlock.addAnimationBlock(animBlock4)
 
     print("Config done")
 
