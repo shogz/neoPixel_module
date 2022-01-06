@@ -78,9 +78,10 @@ class AnimationBlock():
             return;
 
         if(self.status != AnimationStatus.STOPPED):
-
+            
             for pix in self.currentState.pixelList:
                 index, values = pix
+                print("Index: {}, Value:{}".format(index, values))
                 self.accessToken[index] = values
 
     def next(self):
@@ -130,9 +131,9 @@ def main():
 
     print("Starting config")
     
-    block1State3 = PixelState([(0, (0,255,0)), (1, (0,0,0)), (2, (0,0,0)), (3, (0,0,0)), (4, (0,0,0)), (5, (0,255,0))], None, Transition(0.25))
-    block1State2 = PixelState([(0, (0,0,0)), (1, (0,255,0)), (2, (0,0,0)), (3, (0,0,0)), (4, (0,255,0)), (5, (0,0,0))], block1State3, Transition(0.25))
-    block1State1 = PixelState([(0, (0,0,0)), (1, (0,0,0)), (2, (0,255,0)), (3, (0,255,0)), (4, (0,0,0)), (5, (0,0,0))], block1State2, Transition(0.25))
+    block1State3 = PixelState([(0, (0,50,0)), (1, (0,0,0)), (2, (0,0,0)), (3, (0,0,0)), (4, (0,0,0)), (5, (0,50,0))], None, Transition(0.25))
+    block1State2 = PixelState([(0, (0,0,0)), (1, (0,50,0)), (2, (0,0,0)), (3, (0,0,0)), (4, (0,50,0)), (5, (0,0,0))], block1State3, Transition(0.25))
+    block1State1 = PixelState([(0, (0,0,0)), (1, (0,0,0)), (2, (0,50,0)), (3, (0,50,0)), (4, (0,0,0)), (5, (0,0,0))], block1State2, Transition(0.25))
 
     block1State3.setNext(block1State1)
 
