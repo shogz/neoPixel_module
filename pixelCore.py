@@ -80,7 +80,8 @@ class AnimationBlock():
         if(self.status != AnimationStatus.STOPPED):
 
             for pix in self.currentState.pixelList:
-                self.accessToken[pix(1)] = pix(2)
+                index, values = pix
+                self.accessToken[index] = values
 
     def next(self):
 
