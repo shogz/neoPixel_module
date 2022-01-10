@@ -26,7 +26,7 @@ pixels = neopixel.NeoPixel(
 )
 
 pixels.fill((0,0,0))
-pixels[3] = (10,0,0)
-pixels[6] = (0,10,0)
-pixels[9] = (0,0,10)
+pixels[3] = (255,0,0)
+pixels[6] = (0,255,0)
+pixels[9] = (0,0,255)
 pixels.show()
