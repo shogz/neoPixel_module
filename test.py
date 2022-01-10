@@ -22,7 +22,7 @@ num_pixels = 15
 ORDER = neopixel.RGB
 
 pixels = neopixel.NeoPixel(
-    pixel_pin, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER
+    pixel_pin, num_pixels, brightness=0.1, auto_write=False, pixel_order=ORDER
 )
 
 
