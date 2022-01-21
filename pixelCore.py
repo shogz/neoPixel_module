@@ -177,4 +177,4 @@ def main():
     pixelBlock.startAll()
 
 
-main()
+#main()
