@@ -43,15 +43,15 @@ stateAnim3.setNext(stateAnim1)
 stateAnim = pixelCore.AnimationBlock("STATE_ANIM")    
 stateAnim.setCurrentState(stateAnim1)
 
-powerAnimState = pixelCore.PixelState([(11, (255,0,0)), (12, (0,255,0)), (13, (0,255,0)), (14, (0,255,0))], None, None)
+powerAnimState = pixelCore.PixelState([(10, (255,0,0)), (11, (0,255,0)), (12, (0,255,0)), (13, (0,255,0))], None, None)
 
 powerAnim = pixelCore.AnimationBlock("POWER_ANIM")    
 powerAnim.setCurrentState(powerAnimState)
 
-abgd2State1 = pixelCore.PixelState([(15, (255,0,0)), (16, (255,0,0)), (17, (0,255,0)), (18, (0,0,0)), (19, (0,0,0)), (20, (0,0,0))], None, pixelCore.Transition(0.25))
-abgd2State2 = pixelCore.PixelState([(15, (255,0,0)), (16, (255,0,0)), (17, (0,0,0)), (18, (0,255,0)), (19, (0,0,0)), (20, (0,0,0))], None, pixelCore.Transition(0.25))
-abgd2State3 = pixelCore.PixelState([(15, (255,0,0)), (16, (255,0,0)), (17, (0,0,0)), (18, (0,0,0)), (19, (0,255,0)), (20, (0,0,0))], None, pixelCore.Transition(0.25))
-abgd2State4 = pixelCore.PixelState([(15, (255,0,0)), (16, (255,0,0)), (17, (0,0,0)), (18, (0,0,0)), (19, (0,0,0)), (20, (0,255,0))], None, pixelCore.Transition(0.25))
+abgd2State1 = pixelCore.PixelState([(14, (255,0,0)), (15, (255,0,0)), (16, (0,255,0)), (17, (0,0,0)), (18, (0,0,0)), (19, (0,0,0))], None, pixelCore.Transition(0.25))
+abgd2State2 = pixelCore.PixelState([(14, (255,0,0)), (15, (255,0,0)), (16, (0,0,0)), (17, (0,255,0)), (18, (0,0,0)), (19, (0,0,0))], None, pixelCore.Transition(0.25))
+abgd2State3 = pixelCore.PixelState([(14, (255,0,0)), (15, (255,0,0)), (16, (0,0,0)), (17, (0,0,0)), (18, (0,255,0)), (19, (0,0,0))], None, pixelCore.Transition(0.25))
+abgd2State4 = pixelCore.PixelState([(14, (255,0,0)), (15, (255,0,0)), (16, (0,0,0)), (17, (0,0,0)), (18, (0,0,0)), (19, (0,255,0))], None, pixelCore.Transition(0.25))
 
 abdg2Anim = pixelCore.AnimationBlock("ABDG_2_ANIM")    
 abdg2Anim.setCurrentState(abgd2State1)
@@ -60,6 +60,34 @@ abgd2State1.setNext(abgd2State2)
 abgd2State2.setNext(abgd2State3)
 abgd2State3.setNext(abgd2State4)
 abgd2State4.setNext(abgd2State1)
+
+scanHeadStaticState = pixelCore.PixelState([(21, (255,0,0)), (22, (255,0,0)), (23, (255,0,0)), (26, (255,255,0)), (27, (255,255,0)), (28, (255,255,0)), (37, (255,255,0)), (38, (0,255,0)), (39, (0,255,0)), (40, (0,255,0)), (41, (0,255,0))], None, None)
+
+scanHeadStatic = pixelCore.AnimationBlock("SCAN_HEAD_STATIC")    
+scanHeadStatic.setCurrentState(scanHeadStaticState)
+
+scanHeadToggle1 = pixelCore.PixelState([(24, (0,255,0)), (25, (0,0,0))], None, pixelCore.Transition(0.5))
+scanHeadToggle2 = pixelCore.PixelState([(24, (0,0,0)), (25, (0,255,0))], None, pixelCore.Transition(0.5))
+
+scanHeadToggle1.setNext(scanHeadToggle2)
+scanHeadToggle2.setNext(scanHeadToggle1)
+
+scanHeadToggleAnim = pixelCore.AnimationBlock("SCAN_HEAD_TOGGLE")    
+scanHeadToggleAnim.setCurrentState(powerAnimState)
+
+centerScanBar1 = pixelCore.PixelState([(29, (0,0,0)), (30, (0,0,0)), (31, (0,0,0)), (32, (0,255,0)), (33, (0,255,0)), (34, (0,0,0)), (35, (0,0,0)), (36, (0,0,0))], None, pixelCore.Transition(0.25))
+centerScanBar2 = pixelCore.PixelState([(29, (0,0,0)), (30, (0,0,0)), (31, (0,255,0)), (32, (0,0,0)), (33, (0,0,0)), (34, (0,255,0)), (35, (0,0,0)), (36, (0,0,0))], None, pixelCore.Transition(0.25))
+centerScanBar3 = pixelCore.PixelState([(29, (0,0,0)), (30, (0,255,0)), (31, (0,0,0)), (32, (0,0,0)), (33, (0,0,0)), (34, (0,0,0)), (35, (0,255,0)), (36, (0,0,0))], None, pixelCore.Transition(0.25))
+centerScanBar4 = pixelCore.PixelState([(29, (0,255,0)), (30, (0,0,0)), (31, (0,0,0)), (32, (0,0,0)), (33, (0,0,0)), (34, (0,0,0)), (35, (0,0,0)), (36, (0,255,0))], None, pixelCore.Transition(0.25))
+
+centerScanBar1.setNext(centerScanBar2)
+centerScanBar2.setNext(centerScanBar3)
+centerScanBar3.setNext(centerScanBar4)
+centerScanBar4.setNext(centerScanBar1)
+
+centerScanBarAnim = pixelCore.AnimationBlock("CENTER_SCAN_BAR_ANIM")    
+centerScanBarAnim.setCurrentState(centerScanBar1)
+
 
 pixelBlock = pixelCore.PixelBlock(board.D12 , 52, 0.2, True, neopixel.GRB)
 
@@ -70,5 +98,8 @@ pixelBlock.addAnimationBlock(bioBTNAnim)
 pixelBlock.addAnimationBlock(stateAnim)
 pixelBlock.addAnimationBlock(powerAnim)
 pixelBlock.addAnimationBlock(abdg2Anim)
+pixelBlock.addAnimationBlock(scanHeadStatic)
+pixelBlock.addAnimationBlock(scanHeadToggleAnim)
+pixelBlock.addAnimationBlock(centerScanBarAnim)
 
 pixelBlock.startAll()
