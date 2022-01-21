@@ -61,13 +61,13 @@ abgd2State2.setNext(abgd2State3)
 abgd2State3.setNext(abgd2State4)
 abgd2State4.setNext(abgd2State1)
 
-scanHeadStaticState = pixelCore.PixelState([(21, (255,0,0)), (22, (255,0,0)), (23, (255,0,0)), (26, (255,255,0)), (27, (255,255,0)), (28, (255,255,0)), (37, (255,255,0)), (38, (0,255,0)), (39, (0,255,0)), (40, (0,255,0)), (41, (0,255,0))], None, None)
+scanHeadStaticState = pixelCore.PixelState([(20, (255,0,0)), (21, (255,0,0)), (22, (255,0,0)), (25, (255,255,0)), (26, (255,255,0)), (27, (255,255,0)), (36, (255,255,0)), (37, (0,255,0)), (38, (0,255,0)), (39, (0,255,0)), (40, (0,255,0))], None, None)
 
 scanHeadStatic = pixelCore.AnimationBlock("SCAN_HEAD_STATIC")    
 scanHeadStatic.setCurrentState(scanHeadStaticState)
 
-scanHeadToggle1 = pixelCore.PixelState([(24, (0,255,0)), (25, (0,0,0))], None, pixelCore.Transition(0.5))
-scanHeadToggle2 = pixelCore.PixelState([(24, (0,0,0)), (25, (0,255,0))], None, pixelCore.Transition(0.5))
+scanHeadToggle1 = pixelCore.PixelState([(23, (0,255,0)), (24, (0,0,0))], None, pixelCore.Transition(0.5))
+scanHeadToggle2 = pixelCore.PixelState([(23, (0,0,0)), (24, (0,255,0))], None, pixelCore.Transition(0.5))
 
 scanHeadToggle1.setNext(scanHeadToggle2)
 scanHeadToggle2.setNext(scanHeadToggle1)
@@ -75,10 +75,10 @@ scanHeadToggle2.setNext(scanHeadToggle1)
 scanHeadToggleAnim = pixelCore.AnimationBlock("SCAN_HEAD_TOGGLE")    
 scanHeadToggleAnim.setCurrentState(powerAnimState)
 
-centerScanBar1 = pixelCore.PixelState([(29, (0,0,0)), (30, (0,0,0)), (31, (0,0,0)), (32, (0,255,0)), (33, (0,255,0)), (34, (0,0,0)), (35, (0,0,0)), (36, (0,0,0))], None, pixelCore.Transition(0.25))
-centerScanBar2 = pixelCore.PixelState([(29, (0,0,0)), (30, (0,0,0)), (31, (0,255,0)), (32, (0,0,0)), (33, (0,0,0)), (34, (0,255,0)), (35, (0,0,0)), (36, (0,0,0))], None, pixelCore.Transition(0.25))
-centerScanBar3 = pixelCore.PixelState([(29, (0,0,0)), (30, (0,255,0)), (31, (0,0,0)), (32, (0,0,0)), (33, (0,0,0)), (34, (0,0,0)), (35, (0,255,0)), (36, (0,0,0))], None, pixelCore.Transition(0.25))
-centerScanBar4 = pixelCore.PixelState([(29, (0,255,0)), (30, (0,0,0)), (31, (0,0,0)), (32, (0,0,0)), (33, (0,0,0)), (34, (0,0,0)), (35, (0,0,0)), (36, (0,255,0))], None, pixelCore.Transition(0.25))
+centerScanBar1 = pixelCore.PixelState([(28, (0,0,0)), (29, (0,0,0)), (30, (0,0,0)), (31, (0,255,0)), (32, (0,255,0)), (33, (0,0,0)), (34, (0,0,0)), (35, (0,0,0))], None, pixelCore.Transition(0.25))
+centerScanBar2 = pixelCore.PixelState([(28, (0,0,0)), (29, (0,0,0)), (30, (0,255,0)), (31, (0,0,0)), (32, (0,0,0)), (33, (0,255,0)), (34, (0,0,0)), (35, (0,0,0))], None, pixelCore.Transition(0.25))
+centerScanBar3 = pixelCore.PixelState([(28, (0,0,0)), (29, (0,255,0)), (30, (0,0,0)), (31, (0,0,0)), (32, (0,0,0)), (33, (0,0,0)), (34, (0,255,0)), (35, (0,0,0))], None, pixelCore.Transition(0.25))
+centerScanBar4 = pixelCore.PixelState([(28, (0,255,0)), (29, (0,0,0)), (30, (0,0,0)), (31, (0,0,0)), (32, (0,0,0)), (33, (0,0,0)), (34, (0,0,0)), (35, (0,255,0))], None, pixelCore.Transition(0.25))
 
 centerScanBar1.setNext(centerScanBar2)
 centerScanBar2.setNext(centerScanBar3)
