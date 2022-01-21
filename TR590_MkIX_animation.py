@@ -17,17 +17,17 @@ abgdState4.setNext(abgdState1)
 abdgAnim = pixelCore.AnimationBlock("ABDG_ANIM")    
 abdgAnim.setCurrentState(abgdState1)
 
-geoBTN = pixelCore.PixelState([(4, (255,50,0))], None, None)
+geoBTN = pixelCore.PixelState([(4, (255,100,0))], None, None)
 
 geoBTNAnim = pixelCore.AnimationBlock("GEO_BTN_ANIM")    
 geoBTNAnim.setCurrentState(geoBTN)
 
-metBTN = pixelCore.PixelState([(5, (255,50,0))], None, None)
+metBTN = pixelCore.PixelState([(5, (255,100,0))], None, None)
 
 metBTNAnim = pixelCore.AnimationBlock("MET_BTN_ANIM")    
 metBTNAnim.setCurrentState(metBTN)
 
-bioBTN = pixelCore.PixelState([(6, (255,50,0))], None, None)
+bioBTN = pixelCore.PixelState([(6, (255,100,0))], None, None)
 
 bioBTNAnim = pixelCore.AnimationBlock("BIO_BTN_ANIM")    
 bioBTNAnim.setCurrentState(bioBTN)
@@ -61,7 +61,7 @@ abgd2State2.setNext(abgd2State3)
 abgd2State3.setNext(abgd2State4)
 abgd2State4.setNext(abgd2State1)
 
-pixelBlock = pixelCore.PixelBlock(board.D12 , 15, 0.2, True, neopixel.GRB)
+pixelBlock = pixelCore.PixelBlock(board.D12 , 52, 0.2, True, neopixel.GRB)
 
 pixelBlock.addAnimationBlock(abdgAnim)
 pixelBlock.addAnimationBlock(geoBTNAnim)
