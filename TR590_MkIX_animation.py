@@ -105,6 +105,7 @@ pixelBlock.addAnimationBlock(stateAnim)
 pixelBlock.addAnimationBlock(powerAnim)
 pixelBlock.addAnimationBlock(abdg2Anim)
 pixelBlock.addAnimationBlock(scanHeadStatic)
+pixelBlock.addAnimationBlock(scanHeadStatic2)
 pixelBlock.addAnimationBlock(scanHeadToggleAnim)
 pixelBlock.addAnimationBlock(centerScanBarAnim)
 
