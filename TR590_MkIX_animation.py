@@ -89,7 +89,7 @@ centerScanBarAnim = pixelCore.AnimationBlock("CENTER_SCAN_BAR_ANIM")
 centerScanBarAnim.setCurrentState(centerScanBar1)
 
 
-pixelBlock = pixelCore.PixelBlock(board.D12 , 52, 0.2, True, neopixel.GRB)
+pixelBlock = pixelCore.PixelBlock(board.D12 , 52, 0.2, False, neopixel.GRB)
 
 pixelBlock.addAnimationBlock(abdgAnim)
 pixelBlock.addAnimationBlock(geoBTNAnim)
@@ -99,7 +99,7 @@ pixelBlock.addAnimationBlock(stateAnim)
 pixelBlock.addAnimationBlock(powerAnim)
 pixelBlock.addAnimationBlock(abdg2Anim)
 pixelBlock.addAnimationBlock(scanHeadStatic)
-#pixelBlock.addAnimationBlock(scanHeadToggleAnim)
+pixelBlock.addAnimationBlock(scanHeadToggleAnim)
 #pixelBlock.addAnimationBlock(centerScanBarAnim)
 
 pixelBlock.startAll()
