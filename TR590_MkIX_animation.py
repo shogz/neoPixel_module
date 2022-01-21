@@ -66,8 +66,8 @@ scanHeadStaticState = pixelCore.PixelState([(20, (255,0,0)), (21, (255,0,0)), (2
 scanHeadStatic = pixelCore.AnimationBlock("SCAN_HEAD_STATIC")    
 scanHeadStatic.setCurrentState(scanHeadStaticState)
 
-scanHeadToggle1 = pixelCore.PixelState([(23, (0,255,0)), (24, (0,0,0))], None, pixelCore.Transition(0.5))
-scanHeadToggle2 = pixelCore.PixelState([(23, (0,0,0)), (24, (0,255,0))], None, pixelCore.Transition(0.5))
+scanHeadToggle1 = pixelCore.PixelState([(23, (0,255,0)), (24, (0,0,0))], None, pixelCore.Transition(0.25))
+scanHeadToggle2 = pixelCore.PixelState([(23, (0,0,0)), (24, (0,255,0))], None, pixelCore.Transition(0.25))
 
 scanHeadToggle1.setNext(scanHeadToggle2)
 scanHeadToggle2.setNext(scanHeadToggle1)
