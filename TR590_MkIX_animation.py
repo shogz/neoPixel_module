@@ -13,8 +13,8 @@ abdgAnim = AnimationBlock("ABDG_ANIM")
 abdgAnim.setCurrentState(abgdState1)
 
 
-pixelBlock = PixelBlock(board.D12 , 15, 0.2, True, neopixel.RGB)
+pixelBlock = PixelBlock(board.D12 , 15, 0.2, True, neopixel.GRB)
 
-pixelBlock.addAnimationBlock(animBlock1)
+pixelBlock.addAnimationBlock(abdgAnim)
 
 pixelBlock.startAll()
