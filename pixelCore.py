@@ -98,10 +98,10 @@ class PixelBlock():
     animationBlocks = []
     stopped = True
 
-    def __init__(self, hardwarePin, noPixels, brightness=0.2, auto_write=True, pixel_order=neopixel.RGB):
+    def __init__(self, hardwarePin, noPixels, bright=0.2, auto=True, order=neopixel.RGB):
 
-        self.pixels = neopixel.NeoPixel(hardwarePin, noPixels)#, brightness, auto_write, pixel_order)
-        self.auto_write = auto_write
+        self.pixels = neopixel.NeoPixel(hardwarePin, noPixels, brightness=bright, auto_write=auto, pixel_order=order)
+        self.auto_write = auto
         
     def addAnimationBlock(self, animationBlock):
         animationBlock.accessToken = self.pixels
