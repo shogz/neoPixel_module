@@ -17,6 +17,8 @@ abgdState4.setNext(abgdState1)
 abdgAnim = pixelCore.AnimationBlock("ABDG_ANIM")    
 abdgAnim.setCurrentState(abgdState1)
 
+geoBTN = pixelCore.PixelState([(4, (0,255,0))], None, None)
+
 
 pixelBlock = pixelCore.PixelBlock(board.D12 , 15, 0.2, True, neopixel.GRB)
 

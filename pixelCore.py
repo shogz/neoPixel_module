@@ -60,6 +60,9 @@ class AnimationBlock():
 
     def checkSwitchCondition(self):
 
+        if(self.currentState.transition is None):
+            return False
+
         if(self.currentState.transition.transitionType == TransitionType.DELAY):
             
             now = time.perf_counter()
