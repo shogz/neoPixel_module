@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import neopixel
 import pixelCore
 import board
 
