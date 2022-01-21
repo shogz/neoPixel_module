@@ -112,6 +112,15 @@ class PixelBlock():
 
     def runAnimations(self):
 
+
+        for anim in self.animationBlocks:
+
+            anim.setPixelStates()
+
+        if(not self.auto_write):
+            self.pixels.show()
+
+
         while(not self.stopped):
             
             for anim in self.animationBlocks:
@@ -119,7 +128,6 @@ class PixelBlock():
                 anim.next()
 
             if(not self.auto_write):
-                #print()
                 self.pixels.show()
 
     def stopAll(self):
