@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import pixelCore
+import board
 
 abgdState1 = pixelCore.PixelState([(0, (0,255,0)), (1, (0,0,0)), (2, (0,0,0)), (3, (0,0,0))], None, pixelCore.Transition(0.25))
 abgdState2 = pixelCore.PixelState([(0, (0,0,0)), (1, (0,255,0)), (2, (0,0,0)), (3, (0,0,0))], None, pixelCore.Transition(0.25))
