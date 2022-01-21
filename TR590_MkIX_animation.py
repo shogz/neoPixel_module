@@ -61,7 +61,8 @@ abgd2State2.setNext(abgd2State3)
 abgd2State3.setNext(abgd2State4)
 abgd2State4.setNext(abgd2State1)
 
-scanHeadStaticState = pixelCore.PixelState([(20, (255,0,0)), (21, (255,0,0)), (22, (255,0,0)), (25, (255,255,0)), (26, (255,255,0)), (27, (255,255,0)), (36, (255,255,0)), (37, (0,255,0)), (38, (0,255,0)), (39, (0,255,0)), (40, (0,255,0))], None, None)
+scanHeadStaticState = pixelCore.PixelState([(20, (255,0,0)), (21, (255,0,0)), (22, (255,0,0)), (25, (255,255,0)), (26, (255,255,0)), (27, (255,255,0))], None, None)
+#, (36, (255,255,0)), (37, (0,255,0)), (38, (0,255,0)), (39, (0,255,0)), (40, (0,255,0))
 
 scanHeadStatic = pixelCore.AnimationBlock("SCAN_HEAD_STATIC")    
 scanHeadStatic.setCurrentState(scanHeadStaticState)
