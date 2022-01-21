@@ -27,7 +27,7 @@ metBTN = pixelCore.PixelState([(5, (255,150,0))], None, None)
 metBTNAnim = pixelCore.AnimationBlock("MET_BTN_ANIM")    
 metBTNAnim.setCurrentState(metBTN)
 
-BioBTN = pixelCore.PixelState([(6, (255,150,0))], None, None)
+bioBTN = pixelCore.PixelState([(6, (255,150,0))], None, None)
 
 bioBTNAnim = pixelCore.AnimationBlock("BIO_BTN_ANIM")    
 bioBTNAnim.setCurrentState(bioBTN)
