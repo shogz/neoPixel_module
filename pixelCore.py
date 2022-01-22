@@ -66,7 +66,6 @@ class AnimationBlock():
         if(self.currentState.transition.transitionType == TransitionType.DELAY):
             
             now = time.perf_counter()
-            #print("Last Update: {}; Current Time: {}; Diff: {}; lag: {}".format(self.lastUpdate, now, now - self.lastUpdate, self.currentState.transition.duration))
             if(now - self.lastUpdate >= self.currentState.transition.duration):
                 return True
            
@@ -84,7 +83,7 @@ class AnimationBlock():
             
             for pix in self.currentState.pixelList:
                 index, values = pix
-                print("Index: {}, Value:{}".format(index, values))
+                #print("Index: {}, Value:{}".format(index, values))
                 self.accessToken[index] = values
 
     def next(self):
