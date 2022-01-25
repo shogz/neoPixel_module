@@ -62,7 +62,6 @@ abgd2State3.setNext(abgd2State4)
 abgd2State4.setNext(abgd2State1)
 
 scanHeadStaticState = pixelCore.PixelState([(20, (255,0,0)), (21, (255,0,0)), (22, (255,0,0)), (25, (255,255,0)), (26, (255,255,0)), (27, (255,255,0))], None, None)
-#, (36, (255,255,0)), (37, (0,255,0)), (38, (0,255,0)), (39, (0,255,0)), (40, (0,255,0))
 
 scanHeadStatic = pixelCore.AnimationBlock("SCAN_HEAD_STATIC")    
 scanHeadStatic.setCurrentState(scanHeadStaticState)
@@ -94,6 +93,19 @@ centerScanBar4.setNext(centerScanBar1)
 centerScanBarAnim = pixelCore.AnimationBlock("CENTER_SCAN_BAR_ANIM")    
 centerScanBarAnim.setCurrentState(centerScanBar1)
 
+scanBar1 = pixelCore.PixelState([(41, (0,0,0)), (42, (0,0,0)), (43, (0,0,0)), (44, (0,255,0)), (45, (0,255,0)), (46, (0,0,0)), (47, (0,0,0)), (48, (0,0,0))], None, pixelCore.Transition(0.25))
+scanBar2 = pixelCore.PixelState([(41, (0,0,0)), (42, (0,0,0)), (43, (0,255,0)), (44, (0,0,0)), (45, (0,0,0)), (46, (0,255,0)), (47, (0,0,0)), (48, (0,0,0))], None, pixelCore.Transition(0.25))
+scanBar3 = pixelCore.PixelState([(41, (0,0,0)), (42, (0,255,0)), (43, (0,0,0)), (44, (0,0,0)), (45, (0,0,0)), (46, (0,0,0)), (47, (0,255,0)), (48, (0,0,0))], None, pixelCore.Transition(0.25))
+scanBar4 = pixelCore.PixelState([(41, (0,255,0)), (42, (0,0,0)), (43, (0,0,0)), (44, (0,0,0)), (45, (0,0,0)), (46, (0,0,0)), (47, (0,0,0)), (48, (0,255,0))], None, pixelCore.Transition(0.25))
+
+scanBar1.setNext(scanBar2)
+scanBar2.setNext(scanBar3)
+scanBar3.setNext(scanBar4)
+scanBar4.setNext(scanBar1)
+
+scanBarAnim = pixelCore.AnimationBlock("SCAN_BAR_ANIM")    
+scanBarAnim.setCurrentState(scanBar1)
+
 
 pixelBlock = pixelCore.PixelBlock(board.D12 , 52, 0.2, False, neopixel.GRB)
 
@@ -108,5 +120,6 @@ pixelBlock.addAnimationBlock(scanHeadStatic)
 pixelBlock.addAnimationBlock(scanHeadStatic2)
 pixelBlock.addAnimationBlock(scanHeadToggleAnim)
 pixelBlock.addAnimationBlock(centerScanBarAnim)
+pixelBlock.addAnimationBlock(scanBarAnim)
 
 pixelBlock.startAll()
